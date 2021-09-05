@@ -1,2 +1,5 @@
-<%= javascript_pack_tag 'hello_vue' %>
-<%= stylesheet_pack_tag 'hello_vue'  %> 
+<h1>投稿一覧</h1>
+<% @posts.each do |post| %>
+	<p><%= post.title %></p>
+	<p><%= markdown(post.body) %></p>
+<% end %>
