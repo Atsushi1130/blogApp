@@ -1,0 +1,29 @@
+<h1>新規投稿</h1>
+<%= form_with(url: "/post/create",model: @post) do |f| %>
+	<p>タイトル</p>
+	<div class="form-group">
+		<%= f.text_field :title , class: 'form-control', placeholder: 'タイトルを入力してください'%>
+	</div>
+	<p>本文</p>
+	<div class="form-group">
+		<div id="editor">
+			<textarea name="post[body]" class="form-control" rows="20" v-model='input' debounce='50'></textarea>
+			<div v-html='input | marked'></div>
+		</div>
+	</div>
+	<p class="submit"><%= f.submit "投稿" %></p>
+<% end %>
+
+<script type="text/javascript">
+  window.onload = function() {
+    new Vue({
+      el: '#editor',
+      data: {
+        input: '<%== j @post.body %>',
+      },
+      filters: {
+        marked: marked,
+      },
+    });
+  };
+</script>

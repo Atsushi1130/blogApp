@@ -1,5 +1,12 @@
+<%= link_to "新規投稿", "/post/new" %>
 <h1>投稿一覧</h1>
+
+<div id="content"></div>
+
 <% @posts.each do |post| %>
 	<p><%= post.title %></p>
-	<p><%= markdown(post.body) %></p>
 <% end %>
+
+<script>
+	document.getElementById('content').innerHTML = marked('# Marked in browser\n\nRendered by **marked**.');
+</script>
