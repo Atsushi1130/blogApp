@@ -2,15 +2,28 @@
 <h1>投稿一覧</h1>
 
 <div id="content"></div>
+<div id="post_container">
+	<% @posts.each do |post| %>
+		{{ message }}
+	<% end %>
+</div>
 
-<% @posts.each do |post| %>
-	<p><%= post.title %></p>
-<% end %>
-
-<div>$ \frac{1}{2} $</div>
+<div id="test"></div>
+<div id="test3">$$ \frac{1}{2} $$</div>
+<div id="test4"></div>
 
 <script type="text/javascript">
+	var post = new Vue({
+		el: '#post_container',
+		data: {
+			message: '<%= j post.title %>'
+		}
+	})
+
 	// window.test = marked('<%= j @test %>')
-	var test = '# Marked in browser\n\nRendered by **marked**.';
-	document.getElementById('content').innerHTML = marked(test);
+	var test = "# h1 $ \\alpha$";
+	document.getElementById('test4').innerHTML = marked(test);
+	// メモ
+	// 数式を書くときは"$$"で囲む
+	// fracなどを使用したい時は　\\ を頭に書く(通常のtexと違い2回必要)
 </script>
