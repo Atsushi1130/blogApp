@@ -19,7 +19,7 @@
     new Vue({
       el: '#editor',
       data: {
-        input: '<%== j @post.body %>',
+        input: '<%= j @post.body %>',
       },
       filters: {
         marked: marked,

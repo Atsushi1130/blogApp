@@ -7,6 +7,10 @@
 	<p><%= post.title %></p>
 <% end %>
 
-<script>
-	document.getElementById('content').innerHTML = marked('# Marked in browser\n\nRendered by **marked**.');
+<div>$ \frac{1}{2} $</div>
+
+<script type="text/javascript">
+	// window.test = marked('<%= j @test %>')
+	var test = '# Marked in browser\n\nRendered by **marked**.';
+	document.getElementById('content').innerHTML = marked(test);
 </script>
