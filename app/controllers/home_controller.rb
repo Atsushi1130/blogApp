@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
     @posts = Post.all
+    @test = '# Marked in browser\n\nRendered by **marked**.'
   end
 
   def new
