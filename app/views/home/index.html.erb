@@ -1,16 +1,14 @@
-<%= link_to "新規投稿", "/post/new" %>
+<%= link_to "新規投稿", "/admin/post/new" %>
 <h1>投稿一覧</h1>
 
-<div id="content"></div>
-
 <% @posts.each do |post| %>
-	<p><%= post.title %></p>
+	<p><%= link_to(post.title,"/post/#{post.id}/detail") %></p>
 <% end %>
 
-<div>$ \frac{1}{2} $</div>
-
 <script type="text/javascript">
-	// window.test = marked('<%= j @test %>')
-	var test = '# Marked in browser\n\nRendered by **marked**.';
-	document.getElementById('content').innerHTML = marked(test);
+	// var test = "# h1 $ \\alpha$";
+	// document.getElementById('test4').innerHTML = marked(test);
+	// メモ
+	// 数式を書くときは"$$"で囲む
+	// fracなどを使用したい時は　\\ を頭に書く(通常のtexと違い2回必要)
 </script>
