@@ -1,5 +1,5 @@
 <h1>新規投稿</h1>
-<%= form_with(url: "/post/create",model: @post) do |f| %>
+<%= form_with(url: "/admin/post/create",model: @post) do |f| %>
 	<p>タイトル</p>
 	<div class="form-group">
 		<%= f.text_field :title , class: 'form-control', placeholder: 'タイトルを入力してください'%>

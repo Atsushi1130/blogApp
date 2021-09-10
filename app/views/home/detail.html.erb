@@ -1,0 +1,8 @@
+<h1><%= @post.title %></h1>
+<p id="content"></p>
+
+<script>
+body = '<%= j @post.body %>';
+content = document.getElementById("content");
+content.innerHTML = marked(body);
+</script>
