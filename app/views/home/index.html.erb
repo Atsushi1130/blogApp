@@ -1,11 +1,15 @@
+<h1>管理者タグ</h1>
 <%= link_to "新規投稿", "/admin/post/new" %>
+
 <h1>投稿一覧</h1>
 
 <% @posts.each do |post| %>
-	<p><%= link_to(post.title,"/post/#{post.id}/detail") %></p>
+	<%= link_to(post.title,"/post/#{post.id}/detail") %>
+	<input type=button value="削除">
+	<br>
 <% end %>
 
-<script type="text/javascript">
+<script>
 	// var test = "# h1 $ \\alpha$";
 	// document.getElementById('test4').innerHTML = marked(test);
 	// メモ
