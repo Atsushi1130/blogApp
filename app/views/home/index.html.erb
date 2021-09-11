@@ -5,11 +5,22 @@
 
 <% @posts.each do |post| %>
 	<%= link_to(post.title,"/post/#{post.id}/detail") %>
-	<input type=button value="削除">
+	<%= form_tag "/admin/post/#{post.id}/delete",onSubmit: "return check()" do %>
+		<input type="submit" value="削除">
+	<% end %>
 	<br>
 <% end %>
 
 <script>
+function check(){
+	if(window.confirm('送信してよろしいですか？')){
+		return true;
+	}
+	else{
+		window.alert('キャンセルされました');
+		return false;
+	}
+}
 	// var test = "# h1 $ \\alpha$";
 	// document.getElementById('test4').innerHTML = marked(test);
 	// メモ
