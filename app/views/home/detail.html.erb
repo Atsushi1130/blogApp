@@ -1,6 +1,30 @@
-<h1><%= @post.title %></h1>
-<div id="content"></div>
-<div id="test"></div>
+<% if @current_user %>
+  <%= form_tag "/admin/post/#{@post.id}/delete",onSubmit: "return check()" do %>
+    <input type="submit" value="削除" class="delete_button">
+  <% end %>
+  <%= link_to "編集","/admin/post/#{@post.id}/edit",{class: "edit_button"} %>
+<% end %>
+<br>
+<div class="main_contents">
+  <div class = "post_detail_container">
+    <h1 class="post_detail_title" id='m_plus_rounded_1c'><%= @post.title %></h1>
+    <div id="content"></div>
+  </div>
+</div>
+
+<div class="auther_container">
+	<p>author:<%= @user.name %></p>
+	<p>content</p>
+	<p><%= @user.content %></p>
+	<p>contact:<%= @user.email %></p>
+	<p>管理者タグ</p>
+	<% if @current_user %>
+		<p><%= link_to "新規投稿", "/admin/post/new" %></p>
+		<p><%= link_to "登録情報の編集","/admin/user/#{@user.id}/edit" %></p>
+	<% else %>
+		<p><%= link_to "ログイン","/admin/login_form" %></p>
+	<% end %>
+</div>
 
 <script>
 // HTML特殊文字変換（特殊文字 → 通常文字）
@@ -38,4 +62,13 @@ body = marked('<%= j @post.body %>');
 // body = body.replace(/&quot;,'"');
 content.innerHTML = htmlscd(body);
 
+function check(){
+	if(window.confirm('投稿を削除してよろしいですか？')){
+		return true;
+	}
+	else{
+		window.alert('キャンセルされました');
+		return false;
+	}
+}
 </script>

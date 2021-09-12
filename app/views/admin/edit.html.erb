@@ -1,0 +1,34 @@
+<h1>編集</h1>
+<h2><%= @post.title %></h2>
+<%= form_with(url:"/admin/post/#{@post.id}/update",model: @post,method: "POST") do |f| %>
+	<p>タイトル</p>
+	<div class="form-group">
+		<%= f.text_field :title , class: 'form-control', placeholder: 'タイトルを入力してください'%>
+	</div>
+	<p>本文</p>
+	<div class="form-group">
+		<div id="editor">
+			<textarea name="post[body]" class="form-control" rows="20" v-model='input' debounce='50'><%= @post.body %></textarea>
+			<div id="preview" v-html='convertMarkdown'></div>
+		</div>
+	</div>
+	<p class="submit"><%= f.submit "投稿" %></p>
+<% end %>
+
+<script type="text/javascript">
+  window.onload = function() {
+    new Vue({
+      el: '#editor',
+      data: {
+        input: '<%= j @post.body %>',
+      },
+      computed: {
+				convertMarkdown: function() {
+					MathJax.Hub.Queue(["Typeset", MathJax.Hub, 'preview']);
+					return marked(this.input);
+				}
+			}
+    });
+  };
+
+</script>
