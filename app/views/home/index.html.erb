@@ -4,10 +4,12 @@
 <h1>投稿一覧</h1>
 
 <% @posts.each do |post| %>
-	<%= link_to(post.title,"/post/#{post.id}/detail") %>
-	<%= form_tag "/admin/post/#{post.id}/delete",onSubmit: "return check()" do %>
-		<input type="submit" value="削除">
-	<% end %>
+	<div class="post_container">
+		<%= link_to(post.title,"/post/#{post.id}/detail") %>
+		<%= form_tag "/admin/post/#{post.id}/delete",onSubmit: "return check()" do %>
+			<input type="submit" value="削除">
+		<% end %>
+	</div>
 	<br>
 <% end %>
 
