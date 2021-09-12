@@ -28,6 +28,10 @@ body h1,h2,h3,h4,h5,h6,p,a{
 	font-family: 'Sawarabi Gothic', sans-serif;
 }
 
+.text-center{
+	text-align: center;
+}
+
 header{
 	background-color: #55c500;
 	width: 100%;

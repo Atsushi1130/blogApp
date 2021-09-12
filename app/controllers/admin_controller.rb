@@ -58,6 +58,7 @@ class AdminController < ApplicationController
     @user.name = params.require(:user)["name"]
     @user.content = params.require(:user)["content"]
     @user.email = params.require(:user)["email"]
+    @user.image = params.require(:user)["image"]
     if @user.save
       redirect_to("/")
     end
