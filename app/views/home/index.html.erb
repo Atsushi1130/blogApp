@@ -9,9 +9,13 @@
 </div>
 
 <div class="auther_container">
+	<p class="text-center"><%= image_tag "#{@user.image}",{class: "user_image"} %></p>
 	<p>author:<%= @user.name %></p>
-	<p>content</p>
 	<p><%= @user.content %></p>
+	<div class="text-center">
+		<%= link_to("","https://twitter.com/atsu5566_e",{class: "fab fa-twitter",target: :_blank,rel: "noopener noreferrer"}) %>
+		<%= link_to("","https://github.com/Atsushi1130",{class: "fab fa-github",target: :_blank,rel: "noopener noreferrer"}) %>
+	</div>
 	<p>contact:<%= @user.email %></p>
 	<p>管理者タグ</p>
 	<% if @current_user %>
