@@ -7,10 +7,11 @@
 <% @posts.each do |post| %>
 	<div class="post_container">
 		<%= link_to(post.title,"/post/#{post.id}/detail") %>
-		<%= form_tag "/admin/post/#{post.id}/delete",onSubmit: "return check()" do %>
-			<% if @current_user %>
+		<% if @current_user %>
+			<%= form_tag "/admin/post/#{post.id}/delete",onSubmit: "return check()" do %>
 				<input type="submit" value="削除">
 			<% end %>
+			<%= link_to "編集","/admin/post/#{post.id}/edit" %>
 		<% end %>
 	</div>
 	<br>

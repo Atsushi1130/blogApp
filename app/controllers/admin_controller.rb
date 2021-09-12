@@ -35,4 +35,17 @@ class AdminController < ApplicationController
   def admin_login
     params.require(:user).permit(:email,:password)
   end
+
+  def edit
+    @post = Post.find_by(id: params[:id])
+  end
+
+  def update
+    @post = Post.find_by(id: params[:id])
+    @post.title = params.require(:post)["title"]
+    @post.body = params.require(:post)["body"]
+    if @post.save
+      redirect_to("/")
+    end
+  end
 end
