@@ -1,32 +1,28 @@
-<h1>管理者タグ</h1>
-<%= link_to "新規投稿", "/admin/post/new" %>
-<%= link_to "ログイン","/admin/login_form" %>
+<div class="main_contents">
+	<p class="post_index">投稿一覧</p>
+	<% @posts.each do |post| %>
+		<div class="post_container">
+			<%= link_to(post.title,"/post/#{post.id}/detail",{class: "post_title",id: 'm_plus_rounded_1c'}) %>
+			<p class="created_at"><%= post.created_at.to_s(:datetime_jp) %></p>
+		</div>
+	<% end %>
+</div>
 
-<h1>投稿一覧</h1>
-
-<% @posts.each do |post| %>
-	<div class="post_container">
-		<%= link_to(post.title,"/post/#{post.id}/detail") %>
-		<% if @current_user %>
-			<%= form_tag "/admin/post/#{post.id}/delete",onSubmit: "return check()" do %>
-				<input type="submit" value="削除">
-			<% end %>
-			<%= link_to "編集","/admin/post/#{post.id}/edit" %>
-		<% end %>
-	</div>
-	<br>
-<% end %>
+<div class="auther_container">
+	<p>author:<%= @user.name %></p>
+	<p>content</p>
+	<p><%= @user.content %></p>
+	<p>contact:<%= @user.email %></p>
+	<p>管理者タグ</p>
+	<% if @current_user %>
+		<p><%= link_to "新規投稿", "/admin/post/new" %></p>
+		<p><%= link_to "登録情報の編集","/admin/user/#{@user.id}/edit" %></p>
+	<% else %>
+		<p><%= link_to "ログイン","/admin/login_form" %></p>
+	<% end %>
+</div>
 
 <script>
-function check(){
-	if(window.confirm('送信してよろしいですか？')){
-		return true;
-	}
-	else{
-		window.alert('キャンセルされました');
-		return false;
-	}
-}
 	// var test = "# h1 $ \\alpha$";
 	// document.getElementById('test4').innerHTML = marked(test);
 	// メモ

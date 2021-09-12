@@ -48,4 +48,18 @@ class AdminController < ApplicationController
       redirect_to("/")
     end
   end
+
+  def user_edit
+    @user = User.find_by(id: params[:id])
+  end
+
+  def user_update
+    @user = User.find_by(id: params[:id])
+    @user.name = params.require(:user)["name"]
+    @user.content = params.require(:user)["content"]
+    @user.email = params.require(:user)["email"]
+    if @user.save
+      redirect_to("/")
+    end
+  end
 end

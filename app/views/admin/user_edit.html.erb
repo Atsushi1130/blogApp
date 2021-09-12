@@ -1,0 +1,10 @@
+<h1>登録情報の編集</h1>
+<%= form_with(url:"/admin/user/#{@user.id}/update",model: @user,method: "POST") do |f| %>
+	<p>名前</p>
+	<%= f.text_field :name %>
+	<p>内容</p>
+	<%= f.text_area :content %>
+	<p>メールアドレス</p>
+	<p><%= f.text_field :email %></p>
+	<p><%= f.submit "変更" %></p>
+<% end %>
