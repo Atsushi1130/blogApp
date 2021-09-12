@@ -19,4 +19,20 @@ class AdminController < ApplicationController
     @post.destroy
     redirect_to("/")
   end
+
+  def login_form
+    @user = User.new
+  end
+
+  def login
+    @user = User.find_by(admin_login)
+    if @user
+      session[:user_id] = @user.id
+      redirect_to("/")
+    end
+  end
+
+  def admin_login
+    params.require(:user).permit(:email,:password)
+  end
 end

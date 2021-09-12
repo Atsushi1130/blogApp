@@ -1,5 +1,6 @@
 <h1>管理者タグ</h1>
 <%= link_to "新規投稿", "/admin/post/new" %>
+<%= link_to "ログイン","/admin/login_form" %>
 
 <h1>投稿一覧</h1>
 
@@ -7,7 +8,9 @@
 	<div class="post_container">
 		<%= link_to(post.title,"/post/#{post.id}/detail") %>
 		<%= form_tag "/admin/post/#{post.id}/delete",onSubmit: "return check()" do %>
-			<input type="submit" value="削除">
+			<% if @current_user %>
+				<input type="submit" value="削除">
+			<% end %>
 		<% end %>
 	</div>
 	<br>
