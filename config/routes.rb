@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   post "/admin/post/:id/update" => "admin#update"
   get "/admin/user/:id/edit" => "admin#user_edit"
   post "/admin/user/:id/update" => "admin#user_update"
+  get "/admin/tag/mng" => "admin#tag_mng"
+  post "/admin/tag/create" => "admin#tag_create"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -2,12 +2,14 @@
 <%= form_with(url: "/admin/post/create",model: @post) do |f| %>
 	<p>タイトル</p>
 	<div class="form-group">
-		<%= f.text_field :title , class: 'form-control', placeholder: 'タイトルを入力してください'%>
+		<%= f.text_field :title , class: 'form-control dtl_post_title', placeholder: 'タイトルを入力してください'%>
 	</div>
+	<p>タグ</p>
+	<%= f.collection_check_boxes :tag,@tags,:id,:name %>
 	<p>本文</p>
 	<div class="form-group">
 		<div id="editor">
-			<textarea name="post[body]" class="form-control" rows="20" v-model='input' debounce='50'></textarea>
+			<textarea name="post[body]" class="form-control dtl_body" rows="20" v-model='input' debounce='50'></textarea>
 			<div id="preview" v-html='convertMarkdown'></div>
 		</div>
 	</div>

@@ -1,9 +1,9 @@
 <div class="main_contents">
-	<p class="post_index">投稿一覧</p>
+	<p id="m_plus_rounded_1c" class="post_index">投稿一覧</p>
 	<% @posts.each do |post| %>
 		<div class="post_container">
 			<%= link_to(post.title,"/post/#{post.id}/detail",{class: "post_title",id: 'm_plus_rounded_1c'}) %>
-			<p class="created_at"><%= post.created_at.to_s(:datetime_jp) %></p>
+			<p class="created_at"><%= post.created_at.to_s(:datetime_jp) %>に投稿</p>
 		</div>
 	<% end %>
 </div>
@@ -21,6 +21,7 @@
 	<% if @current_user %>
 		<p><%= link_to "新規投稿", "/admin/post/new" %></p>
 		<p><%= link_to "登録情報の編集","/admin/user/#{@user.id}/edit" %></p>
+		<p><%= link_to "タグの管理","/admin/tag/mng" %></p>
 	<% else %>
 		<p><%= link_to "ログイン","/admin/login_form" %></p>
 	<% end %>
