@@ -45,7 +45,7 @@ class AdminController < ApplicationController
     @post.title = params.require(:post)["title"]
     @post.body = params.require(:post)["body"]
     if @post.save
-      redirect_to("/")
+      redirect_to("/post/#{params[:id]}/detail")
     end
   end
 

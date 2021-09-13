@@ -1,3 +1,27 @@
 // Place all the styles related to the Admin controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// new.html.erb
+.form-control{
+	width: 40%;
+	border: solid;
+}
+.dtl_post_title{
+	height: 30px;
+}
+.dtl_body{
+	height: 250px;
+	resize: none;
+}
+#preview{
+	width: 50%;
+	border: solid red;
+	float: right;
+	display: block;
+	margin-right: 5%;
+	height: 250px;
+	padding: 10px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
