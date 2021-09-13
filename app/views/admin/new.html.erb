@@ -5,6 +5,7 @@
 		<%= f.text_field :title , class: 'form-control dtl_post_title', placeholder: 'タイトルを入力してください'%>
 	</div>
 	<p>タグ</p>
+	<%= f.collection_check_boxes :tag,@tags,:id,:name %>
 	<p>本文</p>
 	<div class="form-group">
 		<div id="editor">

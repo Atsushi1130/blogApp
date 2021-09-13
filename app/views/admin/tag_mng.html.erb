@@ -1,0 +1,11 @@
+<h2>タグの作成</h2>
+<%= form_with(url: "/admin/tag/create",model: @tag) do |f| %>
+	<p>タグ名</p>
+	<%= f.text_field :name %>
+	<%= f.submit "作成" %>
+<% end %>
+
+<h2>タグ一覧</h2>
+<% @tags.each do |tag| %>
+	・<%= tag.name %>
+<% end %>

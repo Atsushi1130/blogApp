@@ -1,6 +1,7 @@
 class AdminController < ApplicationController
   def new
     @post = Post.new
+    @tags = Tag.all
   end
 
   def create
@@ -11,7 +12,7 @@ class AdminController < ApplicationController
   end
 
   def create_params
-    params.require(:post).permit(:title,:body)
+    params.require(:post).permit(:title,:body,{:tag => []})
   end
 
   def delete
@@ -61,6 +62,18 @@ class AdminController < ApplicationController
     @user.image = params.require(:user)["image"]
     if @user.save
       redirect_to("/")
+    end
+  end
+
+  def tag_mng
+    @tag = Tag.new
+    @tags = Tag.all
+  end
+
+  def tag_create
+    @tag = Tag.new(params.require(:tag).permit(:name))
+    if @tag.save
+      redirect_to("/admin/tag/mng")
     end
   end
 end
