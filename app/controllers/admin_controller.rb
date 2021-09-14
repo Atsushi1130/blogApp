@@ -1,18 +1,29 @@
 class AdminController < ApplicationController
   def new
     @post = Post.new
+    @post_and_tag = PostAndTag.new
     @tags = Tag.all
   end
 
   def create
     @post = Post.new(create_params)
-    if @post.save
-      redirect_to("/")
+    @post.save
+    @checked_tags = params.require(:post)["post_and_tag"]["tag_id"]
+    puts @checked_tags
+    @checked_tags.each do |t|
+      if t != ""
+        @tag_map = PostAndTag.new(
+          post_id: @post.id,
+          tag_id: t
+        )
+        @tag_map.save
+      end
     end
+    redirect_to("/")
   end
 
   def create_params
-    params.require(:post).permit(:title,:body,{:tag => []})
+    params.require(:post).permit(:title,:body)
   end
 
   def delete

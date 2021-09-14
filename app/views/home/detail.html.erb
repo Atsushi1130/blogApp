@@ -9,6 +9,10 @@
   <div class = "post_detail_container">
     <p class="post_dtl_time text-right"><%= @post.created_at.to_s(:datetime_jp) %>に投稿</p>
     <h1 class="post_detail_title" id='m_plus_rounded_1c'><%= @post.title %></h1>
+    <p>タグ</p>
+    <% @tags.each do |tag| %>
+      <%= tag.name %>
+    <% end %>
     <div id="content"></div>
   </div>
 </div>

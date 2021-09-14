@@ -1,11 +1,13 @@
 <h1>新規投稿</h1>
-<%= form_with(url: "/admin/post/create",model: @post) do |f| %>
+<%= form_with(url: "/admin/post/create",model:@post) do |f| %>
 	<p>タイトル</p>
 	<div class="form-group">
 		<%= f.text_field :title , class: 'form-control dtl_post_title', placeholder: 'タイトルを入力してください'%>
 	</div>
 	<p>タグ</p>
-	<%= f.collection_check_boxes :tag,@tags,:id,:name %>
+	<%= f.fields_for @post_and_tag do |i| %>
+		<%= i.collection_check_boxes :tag_id,Tag.all,:id,:name %>
+	<% end %>
 	<p>本文</p>
 	<div class="form-group">
 		<div id="editor">
