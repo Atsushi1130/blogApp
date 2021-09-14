@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   post "/admin/user/:id/update" => "admin#user_update"
   get "/admin/tag/mng" => "admin#tag_mng"
   post "/admin/tag/create" => "admin#tag_create"
+  post "/admin/tag/:id/delete" => "admin#tag_delete"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

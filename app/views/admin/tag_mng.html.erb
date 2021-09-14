@@ -7,5 +7,21 @@
 
 <h2>タグ一覧</h2>
 <% @tags.each do |tag| %>
-	・<%= tag.name %>
+	<%= form_tag "/admin/tag/#{tag.id}/delete",onSubmit: "return check()" do %>
+		<%= tag.name %>
+		<input type="submit" value="削除">
+	<% end %>
+	<br>
 <% end %>
+
+<script>
+	function check(){
+		if(window.confirm('タグを削除してよろしいですか？')){
+			return true;
+		}
+		else{
+			window.alert('キャンセルされました');
+			return false;
+		}
+	}
+</script>

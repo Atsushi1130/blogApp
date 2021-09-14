@@ -1,23 +1,36 @@
 class AdminController < ApplicationController
   def new
     @post = Post.new
+    @post_and_tag = PostAndTag.new
     @tags = Tag.all
   end
 
   def create
     @post = Post.new(create_params)
-    if @post.save
-      redirect_to("/")
+    @post.save
+    @checked_tags = params.require(:post)["post_and_tag"]["tag_id"]
+    puts @checked_tags
+    @checked_tags.each do |t|
+      if t != ""
+        @tag_map = PostAndTag.new(
+          post_id: @post.id,
+          tag_id: t
+        )
+        @tag_map.save
+      end
     end
+    redirect_to("/")
   end
 
   def create_params
-    params.require(:post).permit(:title,:body,{:tag => []})
+    params.require(:post).permit(:title,:body)
   end
 
   def delete
     @post = Post.find_by(id: params[:id])
+    @post_and_tag = PostAndTag.where(post_id: @post.id)
     @post.destroy
+    @post_and_tag.destroy_all
     redirect_to("/")
   end
 
@@ -75,5 +88,13 @@ class AdminController < ApplicationController
     if @tag.save
       redirect_to("/admin/tag/mng")
     end
+  end
+
+  def tag_delete
+    @tag = Tag.find_by(id: params[:id])
+    @post_and_tag = PostAndTag.where(tag_id: @tag.id)
+    @tag.destroy
+    @post_and_tag.destroy_all
+    redirect_to("/admin/tag/mng")
   end
 end

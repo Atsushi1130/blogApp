@@ -9,6 +9,10 @@
   <div class = "post_detail_container">
     <p class="post_dtl_time text-right"><%= @post.created_at.to_s(:datetime_jp) %>に投稿</p>
     <h1 class="post_detail_title" id='m_plus_rounded_1c'><%= @post.title %></h1>
+    <p>タグ</p>
+    <% @tags.each do |tag| %>
+      <%= tag.name %>
+    <% end %>
     <div id="content"></div>
   </div>
 </div>
@@ -26,6 +30,7 @@
 	<% if @current_user %>
 		<p><%= link_to "新規投稿", "/admin/post/new" %></p>
 		<p><%= link_to "登録情報の編集","/admin/user/#{@user.id}/edit" %></p>
+		<p><%= link_to "タグの管理","/admin/tag/mng" %></p>
 	<% else %>
 		<p><%= link_to "ログイン","/admin/login_form" %></p>
 	<% end %>
