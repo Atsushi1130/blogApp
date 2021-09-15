@@ -1,10 +1,13 @@
 <h1>編集</h1>
-<h2><%= @post.title %></h2>
 <%= form_with(url:"/admin/post/#{@post.id}/update",model: @post,method: "POST") do |f| %>
 	<p>タイトル</p>
 	<div class="form-group">
 		<%= f.text_field :title , class: 'form-control', placeholder: 'タイトルを入力してください'%>
 	</div>
+	<p>タグ</p>
+	<%= f.fields_for @post_and_tag do |i| %>
+		<%= i.collection_check_boxes :tag_id,Tag.all,:id,:name,checked: @tags %>
+	<% end %>
 	<p>本文</p>
 	<div class="form-group">
 		<div id="editor">
