@@ -8,7 +8,7 @@
 				<% @tags = PostAndTag.where(post_id:post.id) %>
 				<% @tags.each do |t| %>
 					<% @get_tag = Tag.find_by(id: t.tag_id) %>
-					<%= @get_tag.name %>
+					<%= link_to @get_tag.name,"/tag/#{@get_tag.id}" %>
 				<% end %>
 			</div>
 			<p class="created_at"><%= post.created_at.to_s(:datetime_jp) %>に投稿</p>

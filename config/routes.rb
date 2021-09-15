@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'tags/index'
   # home controller
   get '/' => "home#index"
   get "/post/:id/detail" => "home#detail"
