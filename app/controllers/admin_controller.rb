@@ -2,14 +2,12 @@ class AdminController < ApplicationController
   def new
     @post = Post.new
     @post_and_tag = PostAndTag.new
-    @tags = Tag.all
   end
 
   def create
     @post = Post.new(create_params)
     @post.save
     @checked_tags = params.require(:post)["post_and_tag"]["tag_id"]
-    puts @checked_tags
     @checked_tags.each do |t|
       if t != ""
         @tag_map = PostAndTag.new(
@@ -52,15 +50,31 @@ class AdminController < ApplicationController
 
   def edit
     @post = Post.find_by(id: params[:id])
+    @post_and_tag = PostAndTag.new
+    @get_tags = PostAndTag.where(post_id: @post.id)
+    @tags = []
+    @get_tags.each do |t|
+      @tags.push(t.tag_id)
+    end
   end
 
   def update
     @post = Post.find_by(id: params[:id])
     @post.title = params.require(:post)["title"]
     @post.body = params.require(:post)["body"]
-    if @post.save
-      redirect_to("/post/#{params[:id]}/detail")
+    @post.save
+    PostAndTag.where(post_id: @post.id).destroy_all
+    @checked_tags = params.require(:post)["post_and_tag"]["tag_id"]
+    @checked_tags.each do |t|
+      if t != ""
+        @tag_map = PostAndTag.new(
+          post_id: @post.id,
+          tag_id: t
+        )
+        @tag_map.save
+      end
     end
+    redirect_to("/post/#{params[:id]}/detail")
   end
 
   def user_edit
