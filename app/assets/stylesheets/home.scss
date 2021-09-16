@@ -24,7 +24,7 @@
 .auther_container{
 	width: 100%;
 	background-color: #F2F2F2;
-	margin-top: 112px;
+	margin-top: 56px;
 	height: 100%;
 }
 .auther_container p{
@@ -75,6 +75,7 @@
 	padding: 0 10px;
 }
 .tag_select_container{
+	height: 100%;
 	background-color: #F2F2F2;
 }
 .tag_select_mes{
@@ -90,7 +91,7 @@
 	background-color: #F2F2F2;
 	padding: 10px 20px;
 	width: 100%;
-	margin-top:17px;
+	margin-top:3px;
 }
 .post_dtl_time{
 	color: #777777;
@@ -98,6 +99,9 @@
 }
 .dtl_author_area{
 	margin-top: 0;
+}
+.dtl_tag_area{
+	margin: 20px 0;
 }
 
 @media screen and (max-width: 1024px) {
@@ -128,7 +132,7 @@
 	}
 	.right_container{
 		width: 70%;
-		margin:0 15%;
+		margin:20px 15%;
 		height: 100%;
 	}
 	.auther_container{
@@ -152,8 +156,8 @@
 	.post_dtl_time{
 		padding: 20px;
 	}
-	.post_dtl_tag{
-		padding-left: 20px;
+	.dtl_tag_area{
+		margin: 20px;
 	}
 	.post_dtl_body{
 		padding: 20px;
@@ -180,7 +184,7 @@
 	}
 	.right_container{
 		width: 90%;
-		margin:0 5%;
+		margin:20px 5%;
 	}
 	//detail.html.erb
 	.post_detail_title{

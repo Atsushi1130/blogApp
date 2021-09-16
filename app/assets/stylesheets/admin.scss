@@ -11,19 +11,20 @@
 	height: 30px;
 }
 .dtl_body{
-	height: 250px;
+	height: 300px;
 	resize: none;
+	float:left;
 }
 #preview{
 	width: 50%;
 	background-color: #F2F2F2;
-	float: right;
 	display: block;
 	margin-right: 5%;
-	height: 250px;
+	height: 300px;
 	padding: 10px;
 	overflow-x: hidden;
 	overflow-y: scroll;
+	border: solid;
 }
 
 // user_edit.html.erb

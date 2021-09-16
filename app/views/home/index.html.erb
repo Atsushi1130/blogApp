@@ -15,6 +15,9 @@
 				<p class="created_at">最終更新日:<%= post.updated_at.to_s(:datetime_jp) %></p>
 			</div>
 		<% end %>
+		<div class="text-center">
+			<%= paginate @posts %>
+		</div>
 	</div>
 
 	<div class="right_container">
