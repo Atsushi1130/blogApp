@@ -16,10 +16,14 @@
 	border: solid white;
 	padding:3%;
 }
-.auther_container{
+.right_container{
 	width: 20%;
-	background-color: #F2F2F2;
 	margin-left: 5%;
+	height: 100%;
+}
+.auther_container{
+	width: 100%;
+	background-color: #F2F2F2;
 	margin-top: 112px;
 	height: 100%;
 }
@@ -57,12 +61,24 @@
 .fa-twitter{
 	color: #00acee;
 	font-size: 20px;
+	padding-right: 20px;
 }
 .fa-github{
 	color: #171515;
 	font-size: 20px;
+	padding-left: 20px;
 }
 .tag_area{
+	margin-top: 1%;
+}
+.user_content{
+	padding: 0 10px;
+}
+.tag_select_container{
+	background-color: #F2F2F2;
+}
+.tag_select_mes{
+	font-size: 24px;
 }
 
 // detail.html.erb
@@ -74,6 +90,7 @@
 	background-color: #F2F2F2;
 	padding: 10px 20px;
 	width: 100%;
+	margin-top:17px;
 }
 .post_dtl_time{
 	color: #777777;
@@ -81,4 +98,102 @@
 }
 .dtl_author_area{
 	margin-top: 0;
+}
+
+@media screen and (max-width: 1024px) {
+	// index.html.erb
+	.main_contents{
+		width: 60%;
+		margin-left: 7%;
+	}
+	.right_container{
+		width: 23%;
+		margin-left: 5%;
+		height: 100%;
+	}
+}
+
+// tablet(768px)
+@media screen and (max-width: 769px){
+	// index.html.erb
+	.flex_parent{
+		display: block;
+	}
+	.main_contents{
+		width: 70%;
+		margin:0 15%;
+	}
+	.post_container{
+		padding:0%;
+	}
+	.right_container{
+		width: 70%;
+		margin:0 15%;
+		height: 100%;
+	}
+	.auther_container{
+		width: 100%;
+		background-color: #F2F2F2;
+		height: 100%;
+		margin-top: 0;
+	}
+	.tag_area{
+		margin-top: 1%;
+		margin-left:3%;
+	}
+	.created_at{
+		margin-right: 3%;
+	}
+	//detail.html.erb
+	.post_detail_container{
+		background-color: #F2F2F2;
+		padding: 0;
+	}
+	.post_dtl_time{
+		padding: 20px;
+	}
+	.post_dtl_tag{
+		padding-left: 20px;
+	}
+	.post_dtl_body{
+		padding: 20px;
+	}
+}
+
+//mobile L(425px)
+@media screen and (max-width: 426px){
+	// index.html.erb
+	.main_contents{
+		width: 90%;
+		margin:0 5%;
+	}
+	.post_title{
+		padding-top: 20px;
+		padding-left: 20px;
+		font-size: 20px;
+	}
+	.created_at{
+		font-size: 10px;
+	}
+	.tag_area{
+		font-size: 12px;
+	}
+	.right_container{
+		width: 90%;
+		margin:0 5%;
+	}
+	//detail.html.erb
+	.post_detail_title{
+		font-size: 24px;
+	}
+	.post_dtl_tag{
+		font-size: 14px;
+	}
+}
+
+// mobile S (320px)
+@media screen and (max-width: 321px){
+	.post_dtl_time{
+		font-size: 12px;
+	}
 }

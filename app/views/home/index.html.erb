@@ -17,23 +17,35 @@
 		<% end %>
 	</div>
 
-	<div class="auther_container">
-		<p class="text-center"><%= image_tag "#{@user.image}",{class: "user_image"} %></p>
-		<p>author:<%= @user.name %></p>
-		<p><%= @user.content %></p>
-		<div class="text-center">
-			<%= link_to("","https://twitter.com/atsu5566_e",{class: "fab fa-twitter",target: :_blank,rel: "noopener noreferrer"}) %>
-			<%= link_to("","https://github.com/Atsushi1130",{class: "fab fa-github",target: :_blank,rel: "noopener noreferrer"}) %>
+	<div class="right_container">
+		<div class="auther_container">
+			<p class="text-center"><%= image_tag "#{@user.image}",{class: "user_image"} %></p>
+			<p>author:<%= @user.name %></p>
+			<p class="user_content"><%= @user.content %></p>
+			<div class="text-center">
+				<%= link_to("","https://twitter.com/atsu5566_e",{class: "fab fa-twitter",target: :_blank,rel: "noopener noreferrer"}) %>
+				<%= link_to("","https://github.com/Atsushi1130",{class: "fab fa-github",target: :_blank,rel: "noopener noreferrer"}) %>
+			</div>
+			<p>contact</p>
+			<p><%= @user.email %></p>
+			<p>管理者タグ</p>
+			<% if @current_user %>
+				<p><%= link_to "新規投稿", "/admin/post/new" %></p>
+				<p><%= link_to "登録情報の編集","/admin/user/#{@user.id}/edit" %></p>
+				<p><%= link_to "タグの管理","/admin/tag/mng" %></p>
+			<% else %>
+				<p><%= link_to "ログイン","/admin/login_form" %></p>
+			<% end %>
 		</div>
-		<p>contact:<%= @user.email %></p>
-		<p>管理者タグ</p>
-		<% if @current_user %>
-			<p><%= link_to "新規投稿", "/admin/post/new" %></p>
-			<p><%= link_to "登録情報の編集","/admin/user/#{@user.id}/edit" %></p>
-			<p><%= link_to "タグの管理","/admin/tag/mng" %></p>
-		<% else %>
-			<p><%= link_to "ログイン","/admin/login_form" %></p>
-		<% end %>
+
+		<div class="tag_select_container">
+			<div class="text-center">
+				<p class="tag_select_mes">タグから探す</p>
+				<% @get_tags.each do |tag| %>
+					<p><%= link_to tag.name,"/tag/#{tag.id}/index" %></p>
+				<% end %>
+			</div>
+		</div>
 	</div>
 </div>
 
