@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  get 'tags/index'
   # home controller
   get '/' => "home#index"
   get "/post/:id/detail" => "home#detail"
+  # tag controller
+  get "/tag/:id/index" => "tags#index"
   # admin controller
   get "/admin/post/new" => "admin#new"
   post "/admin/post/create" => "admin#create"

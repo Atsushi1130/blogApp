@@ -25,3 +25,10 @@
 	overflow-x: hidden;
 	overflow-y: scroll;
 }
+
+// user_edit.html.erb
+.user_edit_textarea{
+	resize: none;
+	width: 20%;
+	height: 150px;
+}
