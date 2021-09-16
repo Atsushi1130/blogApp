@@ -10,10 +10,12 @@
     <div class = "post_detail_container">
       <p class="post_dtl_time text-right">最終更新日:<%= @post.updated_at.to_s(:datetime_jp) %></p>
       <h1 class="post_detail_title" id='m_plus_rounded_1c'><%= @post.title %></h1>
-      <i class="fas fa-tags post_dtl_tag"></i>
-      <% @tags.each do |tag| %>
-        <%= link_to tag.name,"/tag/#{tag.id}/index",{class:"post_dtl_tag"} %>
-      <% end %>
+      <div class="dtl_tag_area">
+        <i class="fas fa-tags post_dtl_tag"></i>
+        <% @tags.each do |tag| %>
+          <%= link_to tag.name,"/tag/#{tag.id}/index",{class:"post_dtl_tag"} %>
+        <% end %>
+      </div>
       <div id="content" class="post_dtl_body"></div>
     </div>
   </div>

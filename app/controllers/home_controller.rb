@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @posts = Post.all.order(updated_at: "desc")
+    @posts = Kaminari.paginate_array(Post.all.order(updated_at: "desc")).page(params[:page]).per(10)
     @user = User.find_by(id: 1)
     @get_tags = Tag.all
   end
