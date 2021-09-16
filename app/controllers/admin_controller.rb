@@ -60,9 +60,9 @@ class AdminController < ApplicationController
 
   def update
     @post = Post.find_by(id: params[:id])
-    @post.title = params.require(:post)["title"]
-    @post.body = params.require(:post)["body"]
-    @post.save
+    @e_title = params.require(:post)["title"]
+    @e_body = params.require(:post)["body"]
+    @post.update(title: @e_title,body: @e_body)
     PostAndTag.where(post_id: @post.id).destroy_all
     @checked_tags = params.require(:post)["post_and_tag"]["tag_id"]
     @checked_tags.each do |t|
