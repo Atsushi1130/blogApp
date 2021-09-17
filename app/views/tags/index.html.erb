@@ -1,6 +1,9 @@
 <div class="flex_parent">
 	<div class="main_contents">
 		<p id="m_plus_rounded_1c" class="post_index"><%= @tag.name %>の記事一覧</p>
+		<% if @posts.length == 0 %>
+			<p class="text-center post_none">まだ投稿された記事がありません</p>
+		<% end %>
 		<% @posts.each do |post| %>
 			<div class="post_container">
 				<%= link_to(post.title,"/post/#{post.id}/detail",{class: "post_title",id: 'm_plus_rounded_1c'}) %>

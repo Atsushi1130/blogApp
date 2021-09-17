@@ -118,11 +118,12 @@ pre{
 }
 .chapter_container{
 	background-color: #55c500;
-	// height: 100%;
 	width: 20%;
 	border-radius: 20px;
 	padding: 10px 0;
 	position: fixed;
+}
+.dtl_none_area{
 }
 .chapter_name{
 	color: white;
@@ -193,6 +194,9 @@ pre{
 	}
 	.post_detail_title{
 		font-size: 30px;
+	}
+	.dtl_none_area{
+		display: none;
 	}
 }
 
