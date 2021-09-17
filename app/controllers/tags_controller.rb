@@ -1,5 +1,6 @@
 class TagsController < ApplicationController
   def index
+    @get_tags = Tag.all
     @user = User.find_by(id: 1)
     @tag = Tag.find_by(id:params[:id])
     @tag_map = PostAndTag.where(tag_id: @tag.id)
