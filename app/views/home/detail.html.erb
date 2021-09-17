@@ -21,28 +21,57 @@
   </div>
 
   <div class="right_container">
-    <div class="auther_container dtl_author_area">
-      <p class="text-center"><%= image_tag "#{@user.image}",{class: "user_image"} %></p>
-      <p>author:<%= @user.name %></p>
-      <p class="user_content"><%= @user.content %></p>
-      <div class="text-center">
-        <%= link_to("","https://twitter.com/atsu5566_e",{class: "fab fa-twitter",target: :_blank,rel: "noopener noreferrer"}) %>
-        <%= link_to("","https://github.com/Atsushi1130",{class: "fab fa-github",target: :_blank,rel: "noopener noreferrer"}) %>
-      </div>
-      <p>contact:<%= @user.email %></p>
-      <p>管理者タグ</p>
-      <% if @current_user %>
-        <p><%= link_to "新規投稿", "/admin/post/new" %></p>
-        <p><%= link_to "登録情報の編集","/admin/user/#{@user.id}/edit" %></p>
-        <p><%= link_to "タグの管理","/admin/tag/mng" %></p>
-      <% else %>
-        <p><%= link_to "ログイン","/admin/login_form" %></p>
-      <% end %>
+    <div id="chapter_select_area" class="chapter_container">
+      <ul>
+        <a v-for="(index,chapter) in chapters" v-on:click="chapter_select"><p id={{index}} class="chapter_name">・{{ chapter.innerText }}</p></a>
+      </ul>
     </div>
   </div>
 </div>
 
+<div class="dtl_author_area">
+  <p class="text-center"><%= image_tag "#{@user.image}",{class: "user_image"} %></p>
+  <p>author:<%= @user.name %></p>
+  <p class="user_content"><%= @user.content %></p>
+  <div class="text-center">
+    <%= link_to("","https://twitter.com/atsu5566_e",{class: "fab fa-twitter",target: :_blank,rel: "noopener noreferrer"}) %>
+    <%= link_to("","https://github.com/Atsushi1130",{class: "fab fa-github",target: :_blank,rel: "noopener noreferrer"}) %>
+  </div>
+  <p>contact:<%= @user.email %></p>
+  <p>管理者タグ</p>
+  <% if @current_user %>
+    <p><%= link_to "新規投稿", "/admin/post/new" %></p>
+    <p><%= link_to "登録情報の編集","/admin/user/#{@user.id}/edit" %></p>
+    <p><%= link_to "タグの管理","/admin/tag/mng" %></p>
+  <% else %>
+    <p><%= link_to "ログイン","/admin/login_form" %></p>
+  <% end %>
+</div>
+
 <script>
+$(function() {
+  let content = document.getElementById('content');
+  let h1el = [];
+  let get_h1 = content.getElementsByTagName('h1');
+  for(var i=0;i<get_h1.length;i++){
+    h1el.push(get_h1[i])
+  }
+  new Vue({
+    el: '#chapter_select_area',
+    data: {
+      chapters: h1el
+    },
+    methods: {
+      chapter_select: function(event){
+        // event.currentTarget.scrollIntoView();
+        var index = event.currentTarget.firstChild.id;
+        var element = h1el[index]
+        element.scrollIntoView();
+      }
+    }
+  })
+})
+
 // HTML特殊文字変換（特殊文字 → 通常文字）
 var htmlscd = (function() {
   const map = {'&nbsp;':' ','&lt;':'<','&gt;':'>','&amp;':'&','&quot;':'"','&apos;':"'",'&copy;':'©'};

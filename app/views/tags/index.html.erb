@@ -38,5 +38,14 @@
 				<p><%= link_to "ログイン","/admin/login_form" %></p>
 			<% end %>
 		</div>
+
+		<div class="tag_select_container">
+			<div class="text-center">
+				<p class="tag_select_mes">タグから探す</p>
+				<% @get_tags.each do |tag| %>
+					<p><%= link_to tag.name,"/tag/#{tag.id}/index" %></p>
+				<% end %>
+			</div>
+		</div>
 	</div>
 </div>

@@ -15,6 +15,7 @@
 	width: 100%;
 	border: solid white;
 	padding:3%;
+	border-radius: 20px;
 }
 .right_container{
 	width: 20%;
@@ -26,6 +27,7 @@
 	background-color: #F2F2F2;
 	margin-top: 56px;
 	height: 100%;
+	border-radius: 20px;
 }
 .auther_container p{
 	text-align: center;
@@ -77,9 +79,14 @@
 .tag_select_container{
 	height: 100%;
 	background-color: #F2F2F2;
+	border-radius: 20px;
 }
 .tag_select_mes{
 	font-size: 24px;
+}
+pre{
+	background-color: #23241f;
+	color: yellow;
 }
 
 // detail.html.erb
@@ -92,16 +99,38 @@
 	padding: 10px 20px;
 	width: 100%;
 	margin-top:3px;
+	border-radius: 20px;
 }
 .post_dtl_time{
 	color: #777777;
 	font-size: 14px;
 }
 .dtl_author_area{
-	margin-top: 0;
+	margin-top: 50px;
+	width: 100%;
+	background-color: #F2F2F2;
+	margin-top: 56px;
+	height: 100%;
+	text-align: center;
 }
 .dtl_tag_area{
 	margin: 20px 0;
+}
+.chapter_container{
+	background-color: #55c500;
+	// height: 100%;
+	width: 20%;
+	border-radius: 20px;
+	padding: 10px 0;
+	position: fixed;
+}
+.chapter_name{
+	color: white;
+	font-size: 20px;
+	padding: 5px;
+}
+.chapter_name:hover{
+	cursor: pointer;
 }
 
 @media screen and (max-width: 1024px) {
@@ -161,6 +190,9 @@
 	}
 	.post_dtl_body{
 		padding: 20px;
+	}
+	.post_detail_title{
+		font-size: 30px;
 	}
 }
 
