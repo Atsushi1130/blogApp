@@ -1,4 +1,6 @@
 class AdminController < ApplicationController
+  before_action :autheniticate_user
+
   def new
     @post = Post.new
     @post_and_tag = PostAndTag.new
