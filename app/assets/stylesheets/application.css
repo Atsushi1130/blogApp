@@ -76,6 +76,15 @@ body a{
   border-radius: 15px;    /*角を丸くする*/
 }
 
+footer{
+	background-color: #55c500;
+	color: white;
+}
+
+.footer_link{
+	color: white;
+}
+
 /* mobile L (425px) */
 @media screen and (max-width: 426px){
 	header p{

@@ -14,4 +14,9 @@ class HomeController < ApplicationController
       @tags.push(Tag.find_by(id:t.tag_id))
     end
   end
+
+  def privacy
+    @user = User.find_by(id: 1)
+    @get_tags = Tag.all
+  end
 end

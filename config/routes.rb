@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # home controller
   get '/' => "home#index"
   get "/post/:id/detail" => "home#detail"
+  get "/privacy" => "home#privacy"
   # tag controller
   get "/tag/:id/index" => "tags#index"
   # admin controller
