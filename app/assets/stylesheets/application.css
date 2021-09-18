@@ -41,17 +41,22 @@ header{
 	height: 100px;
 	display: table;
 }
+.app_header{
+	justify-content: center;
+	align-items: center;
+}
+
 header p{
 	display: table-cell;
 	color: white;
 	vertical-align: middle;
-	border: solid;
-	margin: auto;
 	font-size: 32px;
-	padding-left: 10%;
 }
 header #wf-sawarabigothic{
 	color: white;
+}
+.search_form_area{
+	margin-left: 40%;
 }
 body{
 	width: 100%;
@@ -74,6 +79,15 @@ body a{
 /*ホバー時のデザイン*/
 .pagination>li>a:hover {        
   border-radius: 15px;    /*角を丸くする*/
+}
+
+footer{
+	background-color: #55c500;
+	color: white;
+}
+
+.footer_link{
+	color: white;
 }
 
 /* mobile L (425px) */

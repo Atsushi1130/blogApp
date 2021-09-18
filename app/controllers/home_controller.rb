@@ -14,4 +14,20 @@ class HomeController < ApplicationController
       @tags.push(Tag.find_by(id:t.tag_id))
     end
   end
+
+  def privacy
+    @user = User.find_by(id: 1)
+    @get_tags = Tag.all
+  end
+
+  def search
+    @posts
+    @user = User.find_by(id: 1)
+    @get_tags = Tag.all
+    @query = params[:query]
+    if @query
+      get_post = Post.where("title like ?","%#{@query}%").order(updated_at: "desc")
+      @posts = Kaminari.paginate_array(get_post).page(params[:page]).per(10)
+    end
+  end
 end

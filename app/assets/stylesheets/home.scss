@@ -123,15 +123,18 @@ pre{
 	padding: 10px 0;
 	position: fixed;
 }
-.dtl_none_area{
-}
 .chapter_name{
 	color: white;
-	font-size: 20px;
+	font-size: 14px;
 	padding: 5px;
 }
 .chapter_name:hover{
 	cursor: pointer;
+}
+
+//privacy.html.erb
+.privacy_area{
+	margin: 50px 0;
 }
 
 @media screen and (max-width: 1024px) {
