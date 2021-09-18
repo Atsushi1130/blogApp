@@ -1,9 +1,6 @@
 <div class="flex_parent">
 	<div class="main_contents">
-		<p id="m_plus_rounded_1c" class="post_index"><%= @tag.name %>の記事一覧</p>
-		<% if @posts.length == 0 %>
-			<p class="text-center post_none">まだ投稿された記事がありません</p>
-		<% end %>
+		<p id="m_plus_rounded_1c" class="post_index">投稿一覧</p>
 		<% @posts.each do |post| %>
 			<div class="post_container">
 				<%= link_to(post.title,"/post/#{post.id}/detail",{class: "post_title",id: 'm_plus_rounded_1c'}) %>
@@ -18,7 +15,9 @@
 				<p class="created_at">最終更新日:<%= post.updated_at.to_s(:datetime_jp) %></p>
 			</div>
 		<% end %>
-		<%= paginate @posts %>
+		<div class="text-center">
+			<%= paginate @posts %>
+		</div>
 	</div>
 
 	<div class="right_container">
