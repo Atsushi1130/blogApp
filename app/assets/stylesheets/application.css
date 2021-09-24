@@ -52,6 +52,9 @@ header p{
 	vertical-align: middle;
 	font-size: 32px;
 }
+.header_title{
+	margin-top: 20px;
+}
 header #wf-sawarabigothic{
 	color: white;
 }
