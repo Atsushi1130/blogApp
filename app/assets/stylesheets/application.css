@@ -13,3 +13,89 @@
  *= require_tree .
  *= require_self
  */
+
+#wf-sawarabigothic{
+	font-family: 'Sawarabi Mincho', sans-serif;
+}
+#m_plus_rounded_1c{
+	font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+#sawarabi_gothic{
+	font-family: 'Sawarabi Gothic', sans-serif;
+}
+
+body h1,h2,h3,h4,h5,h6,p,a{
+	font-family: 'Sawarabi Gothic', sans-serif;
+}
+
+.text-center{
+	text-align: center;
+}
+.text-right{
+	text-align: right;
+}
+
+header{
+	background-color: #55c500;
+	width: 100%;
+	height: 100px;
+	display: table;
+}
+.app_header{
+	justify-content: center;
+	align-items: center;
+}
+
+header p{
+	display: table-cell;
+	color: white;
+	vertical-align: middle;
+	font-size: 32px;
+}
+.header_title{
+	margin-top: 20px;
+}
+header #wf-sawarabigothic{
+	color: white;
+}
+.search_form_area{
+	margin-left: 40%;
+}
+body{
+	width: 100%;
+}
+body a{
+	text-decoration: none;
+}
+
+.pagination>li>a {          
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {     
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {        
+  border-radius: 15px;    /*角を丸くする*/
+}
+
+footer{
+	background-color: #55c500;
+	color: white;
+}
+
+.footer_link{
+	color: white;
+}
+
+/* mobile L (425px) */
+@media screen and (max-width: 426px){
+	header p{
+		font-size: 24px;
+	}
+}

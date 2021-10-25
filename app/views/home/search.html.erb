@@ -1,0 +1,5 @@
+<% if @posts.length > 0 %>
+	<%= render partial: '/shared/index' %>
+<% else %>
+	<p>「<%= @query %>」に該当する記事がありませんでした。</p>
+<% end %>

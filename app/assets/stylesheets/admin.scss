@@ -1,0 +1,36 @@
+// Place all the styles related to the Admin controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+// new.html.erb
+.post_new_area{
+	margin-left: 30px;
+}
+.form-control{
+	width: 40%;
+	border: solid;
+}
+.dtl_post_title{
+	height: 30px;
+}
+.dtl_body{
+	height: 300px;
+	resize: none;
+	float:left;
+	margin-right: 50px;
+}
+#preview{
+	width: 50%;
+	background-color: #F2F2F2;
+	height: 300px;
+	padding: 10px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+// user_edit.html.erb
+.user_edit_textarea{
+	resize: none;
+	width: 20%;
+	height: 150px;
+}

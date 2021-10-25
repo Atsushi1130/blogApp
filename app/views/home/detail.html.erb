@@ -1,0 +1,119 @@
+<% if @current_user %>
+  <%= form_tag "/admin/post/#{@post.id}/delete",onSubmit: "return check()" do %>
+    <input type="submit" value="削除" class="delete_button">
+  <% end %>
+  <%= link_to "編集","/admin/post/#{@post.id}/edit",{class: "edit_button"} %>
+<% end %>
+<br>
+<div class="flex_parent">
+  <div class="main_contents">
+    <div class = "post_detail_container">
+      <p class="post_dtl_time text-right">最終更新日:<%= @post.updated_at.to_s(:datetime_jp) %></p>
+      <h1 class="post_detail_title" id='m_plus_rounded_1c'><%= @post.title %></h1>
+      <div class="dtl_tag_area">
+        <i class="fas fa-tags post_dtl_tag"></i>
+        <% @tags.each do |tag| %>
+          <%= link_to tag.name,"/tag/#{tag.id}/index",{class:"post_dtl_tag"} %>
+        <% end %>
+      </div>
+      <div id="content" class="post_dtl_body"></div>
+    </div>
+  </div>
+
+  <div class="right_container dtl_none_area">
+    <div id="chapter_select_area" class="chapter_container">
+      <ul>
+        <a v-for="(index,chapter) in chapters" v-on:click="chapter_select"><p id={{index}} class="chapter_name">・{{ chapter.innerText }}</p></a>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="dtl_author_area">
+  <p class="text-center"><%= image_tag "#{@user.image}",{class: "user_image"} %></p>
+  <p>author:<%= @user.name %></p>
+  <p class="user_content"><%= @user.content %></p>
+  <div class="text-center">
+    <%= link_to("","https://twitter.com/atsu5566_e",{class: "fab fa-twitter",target: :_blank,rel: "noopener noreferrer"}) %>
+    <%= link_to("","https://github.com/Atsushi1130",{class: "fab fa-github",target: :_blank,rel: "noopener noreferrer"}) %>
+  </div>
+  <p>contact:<%= @user.email %></p>
+  <p>管理者タグ</p>
+  <% if @current_user %>
+    <p><%= link_to "新規投稿", "/admin/post/new" %></p>
+    <p><%= link_to "登録情報の編集","/admin/user/#{@user.id}/edit" %></p>
+    <p><%= link_to "タグの管理","/admin/tag/mng" %></p>
+  <% else %>
+    <p><%= link_to "ログイン","/admin/login_form" %></p>
+  <% end %>
+</div>
+
+<script>
+$(function() {
+  let content = document.getElementById('content');
+  let h1el = [];
+  let get_h1 = content.getElementsByTagName('h1');
+  for(var i=0;i<get_h1.length;i++){
+    h1el.push(get_h1[i])
+  }
+  new Vue({
+    el: '#chapter_select_area',
+    data: {
+      chapters: h1el
+    },
+    methods: {
+      chapter_select: function(event){
+        // event.currentTarget.scrollIntoView();
+        var index = event.currentTarget.firstChild.id;
+        var element = h1el[index]
+        element.scrollIntoView();
+      }
+    }
+  })
+})
+
+// HTML特殊文字変換（特殊文字 → 通常文字）
+var htmlscd = (function() {
+  const map = {'&nbsp;':' ','&lt;':'<','&gt;':'>','&amp;':'&','&quot;':'"','&apos;':"'",'&copy;':'©'};
+  return function(src) {
+    const re = /&#x([0-9A-Fa-f]+);|&#(\d+);|&\w+;|[^&]+|&/g;
+    let text = '';
+    let m;
+    while ((m=re.exec(src)) !== null) {
+      if (m[0].charAt(0) == '&') {
+        if (m[0].length == 1) {
+          text = text + m[0];
+        } else if (m[0].charAt(1) == '#') {
+          if (m[0].charAt(2) == 'x') {
+            text = text + String.fromCharCode(parseInt(m[1], 16));
+          } else {
+            text = text + String.fromCharCode(m[2]-0);
+          }
+        } else if (map.hasOwnProperty(m[0])) {
+          text = text + map[m[0]];
+        } else {
+          text = text + m[0];
+        }
+      } else {
+        text = text + m[0];
+      }
+    }
+    return text;
+  };
+})();
+
+content = document.getElementById("content");
+body = marked('<%= j @post.body %>');
+// body = body.replace(/&quot;,'"');
+content.innerHTML = htmlscd(body);
+
+function check(){
+	if(window.confirm('投稿を削除してよろしいですか？')){
+		return true;
+	}
+	else{
+		window.alert('キャンセルされました');
+		return false;
+	}
+}
+</script>
