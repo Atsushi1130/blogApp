@@ -22,15 +22,11 @@
 
 	<div class="right_container">
 		<div class="auther_container">
-			<%
-=begin%>
- <% if @user.image %>
+			<% if @user.image %>
 				<p class="text-center"><%= image_tag "#{@user.image}",{class: "user_image"} %></p>
 			<% else %>
 				<p class="text-center"><%= image_tag "/app/assets/images/default.png",{class: "user_image"} %></p>
 			<% end %>
-<%
-=end%>
 			<p>author:<%= @user.name %></p>
 			<p class="user_content"><%= @user.content %></p>
 			<div class="text-center">
