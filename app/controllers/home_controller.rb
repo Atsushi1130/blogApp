@@ -54,11 +54,15 @@ class HomeController < ApplicationController
   def contact
     @inquery = Inquery.new
     @inquery.name = params.require(:inquery)["name"]
+    @inquery.email = params.require(:inquery)["email"]
     @inquery.message = params.require(:inquery)["message"]
     if ContactMailer.send_mail(@inquery).deliver_now
-      redirect_to("/")
+      redirect_to("/success_contact")
     else
       render("contact_form.html.erb")
     end
+  end
+
+  def success_contact
   end
 end

@@ -61,8 +61,14 @@ header #wf-sawarabigothic{
 .search_form_area{
 	margin-left: 40%;
 }
-body{
+html, body{
 	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+.wrapper{
+	min-height: 100%;
+	margin-bottom: -50px;
 }
 body a{
 	text-decoration: none;
@@ -84,9 +90,13 @@ body a{
   border-radius: 15px;    /*角を丸くする*/
 }
 
-footer{
+.footer{
 	background-color: #55c500;
 	color: white;
+	height: 50px;
+}
+.push{
+	height: 50px;
 }
 
 .footer_link{
