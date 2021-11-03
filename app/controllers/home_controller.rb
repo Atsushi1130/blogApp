@@ -30,4 +30,35 @@ class HomeController < ApplicationController
       @posts = Kaminari.paginate_array(get_post).page(params[:page]).per(10)
     end
   end
+
+  def login_form
+    @user = User.new
+  end
+
+  def login
+    @user = User.find_by(admin_login)
+    if @user
+      session[:user_id] = @user.id
+      redirect_to("/")
+    end
+  end
+
+  def admin_login
+    params.require(:user).permit(:email,:password)
+  end
+
+  def contact_form
+    @inquery = Inquery.new
+  end
+
+  def contact
+    @inquery = Inquery.new
+    @inquery.name = params.require(:inquery)["name"]
+    @inquery.message = params.require(:inquery)["message"]
+    if ContactMailer.send_mail(@inquery).deliver_now
+      redirect_to("/")
+    else
+      render("contact_form.html.erb")
+    end
+  end
 end
