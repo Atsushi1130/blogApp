@@ -1,4 +1,7 @@
 <div class="contact_form">
+	<% if @error_message %>
+		<p class="error_msg"><%= @error_message %></p>
+	<% end %>
 	<p class="contact_title">お問い合わせ</p>
 	<%= form_with model: @inquery, url: "/contact" do |f| %>
 		<p>名前</p>

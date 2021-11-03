@@ -56,6 +56,11 @@ class HomeController < ApplicationController
     @inquery.name = params.require(:inquery)["name"]
     @inquery.email = params.require(:inquery)["email"]
     @inquery.message = params.require(:inquery)["message"]
+    if (@inquery.name != "" && @inquery.email != "" && @inquery.message != "") == false
+      @error_message = "未入力の項目があります"
+      render("contact_form.html.erb")
+      return
+    end
     if ContactMailer.send_mail(@inquery).deliver_now
       redirect_to("/success_contact")
     else
