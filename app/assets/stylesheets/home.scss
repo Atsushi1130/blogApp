@@ -244,9 +244,33 @@ pre{
 //contact_form.html.erb
 .contact_form{
 	text-align: center;
+	.name, .email, .message{
+		margin: auto;
+		width: 50%;
+		@media screen and (max-width: 426px){
+			width: 70%;
+		}
+	}
 }
 
 .contact_title{
 	padding-top: 24px;
 	font-size: 24px;
+}
+.contact_input{
+	width: 100%;
+}
+.c_message{
+	resize: none;
+	height: 240px;
+}
+.error_msg{
+	color: red;
+	padding-top: 24px;
+}
+
+// success_contact.html.rb
+.success_contact{
+	padding-top: 20px;
+	text-align: center;
 }
