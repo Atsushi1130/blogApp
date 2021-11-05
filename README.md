@@ -12,12 +12,16 @@ rails 6.1.4.1
 ` cd  blogApp `
 
 * /config/environments/development.rbの79行目からのmailerの設定変更
+
 ex) gmailの場合
+
 user_nameを自分のメールアドレスに変更
+
 passwordにgmailのパスワードを入力
 
 * /app/db/seeds.rbにユーザの初期値設定
-ex: ` User.create(:name=>'***', :email=>'***@mail', :password=>'***',:content=>'***',:image=>'\assets\images\default.png') `
+
+コメントアウトを外して好きな値を入力してください。
 
 
 ` rails db:migrate `
