@@ -278,4 +278,7 @@ pre{
 //login_form.html.erb
 #form{
 	text-align: center;
+	.notice{
+		color: red;
+	}
 }
