@@ -40,6 +40,9 @@ class HomeController < ApplicationController
     if @user
       session[:user_id] = @user.id
       redirect_to("/")
+    # else
+    #   @error_message = "メールアドレスもしくはパスワードが違います"
+    #   render("home/login_form.html.erb")
     end
   end
 

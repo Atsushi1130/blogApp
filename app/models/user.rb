@@ -3,6 +3,6 @@ class User < ApplicationRecord
 	validates :content, {presence: true, length: {maximum: 70}}
 	validates :image, {presence: true}
 	validates :name, {presence: true}
-	validates :email, {presence: true}
+	validates :email, {presence: true, uniqueness: true}
 	validates :password, {presence: true}
 end
