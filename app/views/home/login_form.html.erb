@@ -1,6 +1,6 @@
 <div id="form">
   <% if notice %>
-    <p><%= notice %></p>
+    <p class="notice"><%= notice %></p>
   <% end %>
   <h2 class="form-title">管理者Log in</h2>
   <%= form_with(url:"/home/login",model: @user) do |f| %>
