@@ -4,4 +4,4 @@
 # Examples:
 #   下のコメントアウトをはずして、自分のすきな値を入力してください。
 
-#   User.create(:name => '名前', :email => 'ログイン時のメールアドレス', :password => 'ログイン時のパスワード', :content => '自己紹介文', :image => File.open('./app/assets/images/default.png'))
+  User.create(:name => '名前', :email => ENV['S3_email'], :password => ENV['S3_password'], :content => '自己紹介文', :image => File.open('./app/assets/images/default.png'))
