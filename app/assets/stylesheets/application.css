@@ -61,32 +61,42 @@ header #wf-sawarabigothic{
 .search_form_area{
 	margin-left: 40%;
 }
-body{
+html, body{
 	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+.wrapper{
+	min-height: 100%;
+	margin-bottom: -50px;
 }
 body a{
 	text-decoration: none;
 }
 
-.pagination>li>a {          
+.pagination>li>a {
   border: none;     /*枠線をなくす*/
   color: #696969;   /*文字の色を変える*/
 }
 
 /* 表示しているページ番号のデザイン */
-.pagination>.active>a {     
+.pagination>.active>a {
   background: #93c9ff;     /*背景の色を変える*/
   border-radius: 15px;     /*角を丸くする*/
 }
 
 /*ホバー時のデザイン*/
-.pagination>li>a:hover {        
+.pagination>li>a:hover {
   border-radius: 15px;    /*角を丸くする*/
 }
 
-footer{
+.footer{
 	background-color: #55c500;
 	color: white;
+	height: 50px;
+}
+.push{
+	height: 50px;
 }
 
 .footer_link{
@@ -97,5 +107,9 @@ footer{
 @media screen and (max-width: 426px){
 	header p{
 		font-size: 24px;
+	}
+	.search_form_area{
+		margin-left: 20%;
+		margin-top: 10px;
 	}
 }

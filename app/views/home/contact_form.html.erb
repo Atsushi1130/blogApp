@@ -1,1 +1,15 @@
-<p>contact</p>
+<div class="contact_form">
+	<% if @error_message %>
+		<p class="error_msg"><%= @error_message %></p>
+	<% end %>
+	<p class="contact_title">お問い合わせ</p>
+	<%= form_with model: @inquery, url: "/contact" do |f| %>
+		<p>名前</p>
+		<p class="name"><%= f.text_field :name, {class: "contact_input"} %></p>
+		<p>メールアドレス</p>
+		<p class="email"><%= f.text_field :email, {class: "contact_input"} %></p>
+		<p>お問い合わせ内容</p>
+		<p class="message"><%= f.text_area :message, {class: "contact_input c_message"} %></p>
+		<p class="submit"><%= f.submit "送信" %></p>
+	<% end %>
+</div>

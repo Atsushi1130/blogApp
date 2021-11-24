@@ -1,24 +1,37 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Ruby version
+ruby 2.6.8
 
-* Ruby version
+rails 6.1.4.1
 
-* System dependencies
+## 起動方法
+` git clone  https://github.com/Atsushi1130/blogApp blogApp`
 
-* Configuration
+` cd  blogApp `
 
-* Database creation
+* /config/environments/development.rbの79行目からのmailerの設定変更
 
-* Database initialization
+ex) gmailの場合
 
-* How to run the test suite
+user_nameを自分のメールアドレスに変更
 
-* Services (job queues, cache servers, search engines, etc.)
+passwordにgmailのパスワードを入力
 
-* Deployment instructions
+* /app/db/seeds.rbにユーザの初期値設定
 
-* ...
+コメントアウトを外して好きな値を入力してください。
+
+
+` rails db:migrate `
+
+` rails db:seed `
+
+` rails s `
+
+
+* 上で決定した初期値でログイン可能、記事の投稿やプロフィール変更などを行える
+
+## その他
+メールの自動送信機能が組み込まれているため、私のg-mailのパスワードなどを記載する必要があったので、本番環境はprivateリポジトリにある。

@@ -29,8 +29,20 @@
 }
 
 // user_edit.html.erb
-.user_edit_textarea{
-	resize: none;
-	width: 20%;
-	height: 150px;
+.user_edit{
+	p{
+		margin: 20px 0;
+	}
+	.name, .email{
+		text-align: center;
+		width: 40%;
+	}
+	.textarea{
+		resize: none;
+		width: 40%;
+		height: 150px;
+	}
+	.image{
+		margin: auto;
+	}
 }

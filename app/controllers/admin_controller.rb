@@ -34,22 +34,6 @@ class AdminController < ApplicationController
     redirect_to("/")
   end
 
-  def login_form
-    @user = User.new
-  end
-
-  def login
-    @user = User.find_by(admin_login)
-    if @user
-      session[:user_id] = @user.id
-      redirect_to("/")
-    end
-  end
-
-  def admin_login
-    params.require(:user).permit(:email,:password)
-  end
-
   def edit
     @post = Post.find_by(id: params[:id])
     @post_and_tag = PostAndTag.new
