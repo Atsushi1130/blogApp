@@ -24,7 +24,7 @@
     <div v-if="chapters.length">
       <div id="chapter_select_area" class="chapter_container">
         <ul>
-          <a v-for="(index,chapter) in chapters" v-on:click="chapter_select"><p id={{index}} class="chapter_name">・{{ chapter.innerText }}</p></a>
+          <a v-for="(index,chapter) in chapters" v-on:click="chapter_select"><p id={{index}} class="chapter_name">{{ chapter.innerText }}</p></a>
         </ul>
       </div>
     </div>

@@ -122,11 +122,14 @@ pre{
 	border-radius: 20px;
 	padding: 10px 0;
 	position: fixed;
+	// border: solid;
 }
 .chapter_name{
 	color: white;
-	font-size: 14px;
+	font-size: 18px;
 	padding: 5px;
+	// border: solid;
+	width: 80%;
 }
 .chapter_name:hover{
 	cursor: pointer;
