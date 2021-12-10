@@ -59,3 +59,5 @@ gem 'kaminari'
 group :production do
   gem 'pg'
 end
+
+gem 'bcrypt-ruby', '~> 3.0.0'
