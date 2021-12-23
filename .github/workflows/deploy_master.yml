@@ -19,7 +19,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gems-
       - name: Set up Ruby 2.6.8
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby
         with:
           ruby-version: 2.6.8
       - name: Bundle install
